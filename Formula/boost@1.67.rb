@@ -5,12 +5,13 @@ class BoostAT167 < Formula
   sha256 "2684c972994ee57fc5632e03bf044746f6eb45d4920c343937a465fd67a5adba"
   head "https://github.com/boostorg/boost.git"
 
+=begin
   bottle do
-    cellar :any
-    sha256 "3d44a7402cb17d919a555f4d34deda8f0ea14e681892c761be4c719c48b339a5" => :high_sierra
-    sha256 "de2a0c3faa675427e641cf3dd7af2278e7e1db3f6f4c508d61627866c4abef0e" => :sierra
-    sha256 "1d38618d30d6872cf52f8f12fbc545f435f8994dbf8ad9cdff706dfc0c0f564a" => :el_capitan
+    sha256 cellar: :any, high_sierra:   "3d44a7402cb17d919a555f4d34deda8f0ea14e681892c761be4c719c48b339a5"
+    sha256 cellar: :any, sierra:        "de2a0c3faa675427e641cf3dd7af2278e7e1db3f6f4c508d61627866c4abef0e"
+    sha256 cellar: :any, el_capitan:    "1d38618d30d6872cf52f8f12fbc545f435f8994dbf8ad9cdff706dfc0c0f564a"
   end
+=end
 
   option "with-icu4c", "Build regexp engine with icu support"
   option "without-single", "Disable building single-threading variant"
@@ -20,9 +21,8 @@ class BoostAT167 < Formula
 
   depends_on "icu4c" => :optional
 
-  needs :cxx11
-
   def install
+    ENV.cxx11
     # Force boost to compile with the desired compiler
     open("user-config.jam", "a") do |file|
       file.write "using darwin : : #{ENV.cxx} ;\n"
