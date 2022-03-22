@@ -6,10 +6,9 @@ class BoostAT170 < Formula
   head "https://github.com/boostorg/boost.git"
 
   bottle do
-    cellar :any
-    sha256 "c626b90770424ca969d0870d25d7fb13cf9d4f23a828407701face0e7ec4ac93" => :mojave
-    sha256 "8d5a7c95155faf57ce246d3455cea3628569d684a14fb9e621893ceaf3d65373" => :high_sierra
-    sha256 "0578344e152f306a4594b72493dcc3f638425b0fb7f4fcd23e5a523c4542b33a" => :sierra
+    sha256 cellar: :any, mojave:        "c626b90770424ca969d0870d25d7fb13cf9d4f23a828407701face0e7ec4ac93"
+    sha256 cellar: :any, high_sierra:   "8d5a7c95155faf57ce246d3455cea3628569d684a14fb9e621893ceaf3d65373"
+    sha256 cellar: :any, sierra:        "0578344e152f306a4594b72493dcc3f638425b0fb7f4fcd23e5a523c4542b33a"
   end
 
   depends_on "icu4c"

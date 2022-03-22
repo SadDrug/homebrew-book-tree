@@ -28,11 +28,9 @@ class EmscriptenAT140 < Formula
   end
 
   bottle do
-    cellar :any
-    rebuild 1
-    sha256 "8b21f38d1065a89301c3cce79c0bce448089d536280ae6d1cbe97ee3a98b183d" => :catalina
-    sha256 "476a8b8a00f535d160cbb8a08f82c5256d46a434703ecd86d2ed10ec5cea36fe" => :mojave
-    sha256 "09ad53bb82328357f106bbb01b06caa9a02c3daedc9d3ea4f7419badbaa66e17" => :high_sierra
+    sha256 cellar: :any, mojave:        "476a8b8a00f535d160cbb8a08f82c5256d46a434703ecd86d2ed10ec5cea36fe"
+    sha256 cellar: :any, high_sierra:   "09ad53bb82328357f106bbb01b06caa9a02c3daedc9d3ea4f7419badbaa66e17"
+    sha256 cellar: :any, catalina:      "8b21f38d1065a89301c3cce79c0bce448089d536280ae6d1cbe97ee3a98b183d"
   end
 
   keg_only :versioned_formula
@@ -50,7 +48,7 @@ class EmscriptenAT140 < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "binaryen"
+  depends_on "binaryen@94"
   depends_on "node"
   depends_on "python@3.8"
   depends_on "yuicompressor"
