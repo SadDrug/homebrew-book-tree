@@ -27,6 +27,16 @@ class EmscriptenAT140 < Formula
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
+  bottle do
+    cellar :any
+    rebuild 1
+    sha256 "8b21f38d1065a89301c3cce79c0bce448089d536280ae6d1cbe97ee3a98b183d" => :catalina
+    sha256 "476a8b8a00f535d160cbb8a08f82c5256d46a434703ecd86d2ed10ec5cea36fe" => :mojave
+    sha256 "09ad53bb82328357f106bbb01b06caa9a02c3daedc9d3ea4f7419badbaa66e17" => :high_sierra
+  end
+
+  keg_only :versioned_formula
+
   head do
     url "https://github.com/emscripten-core/emscripten.git"
 
@@ -79,8 +89,8 @@ class EmscriptenAT140 < Formula
       rm_f "node_modules/ws/builderror.log" # Avoid references to Homebrew shims
     end
 
-    %w[em++-1.40 em-config-1.40 emar-1.40 emcc-1.40 emcmake-1.40 emconfigure-1.40 emlink-1.40.py emmake-1.40
-       emranlib-1.40 emrun-1.40 emscons-1.40].each do |emscript|
+    %w[em++ em-config emar emcc emcmake emconfigure emlink.py emmake
+       emranlib emrun emscons].each do |emscript|
       (bin/emscript).write_env_script libexec/emscript, PYTHON: Formula["python@3.8"].opt_bin/"python3"
     end
   end
