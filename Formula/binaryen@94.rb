@@ -13,6 +13,8 @@ class BinaryenAT94 < Formula
     sha256 '2fcd8ab42c28422fb1be1b83e3eed243b0b7093c4b137f7fcdf4e4ca1d3190b5' => :high_sierra
   end
 
+  keg_only :versioned_formula
+
   depends_on 'cmake' => :build
   depends_on 'python@3.8' => :build
   depends_on :macos => :el_capitan # needs thread-local storage
